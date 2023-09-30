@@ -1,26 +1,13 @@
-import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useItemCollection } from "../hooks/useItemCollection";
+import LoaderComponent from "../components/LoaderComponent/LoaderComponent";
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
 
-
-function getProductById(id) {
-    return axios.get(`https://dummyjson.com/products/${id}`);
-}
-
 const ItemDetails = () => {
-    const [product, setProduct] = useState({});
     const { itemId } = useParams();
+    const { data, loading } = useItemCollection("products", itemId);
 
-    useEffect(() => {
-        getProductById(itemId)
-            .then((res) => {
-                setProduct(res.data);
-            })
-            .catch((err) => { });
-    }, [itemId]);
-
-    return <ItemDetailContainer productData={product} />;
+    return loading ? <LoaderComponent /> : <ItemDetailContainer productData={data} />;
 };
 
 export default ItemDetails;

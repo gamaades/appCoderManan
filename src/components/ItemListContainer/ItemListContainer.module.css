@@ -1,13 +1,19 @@
-.productContainer{
+.productContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
     flex-wrap: wrap;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
+    margin: 0 auto; /* Esto centrará el contenedor horizontalmente */
+    max-width: 1200px; /* Ajusta el ancho máximo según tus necesidades */
     padding: 0;
     margin-top: 2rem;
     margin-bottom: 2rem;
-}
+  }
+  
+  /* Si deseas centrar verticalmente también */
+  .container-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Esto centrará verticalmente el contenido en la página */
+  }

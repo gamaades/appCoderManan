@@ -1,29 +1,15 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import LoaderComponent from "../components/LoaderComponent/LoaderComponent";
-function getProducts() {
-  return axios.get("https://dummyjson.com/products?limit=16");
-}
+import { useCollection } from "../hooks/useCollection";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getProducts()
-      .then((res) => {
-        setProducts(res.data.products);
 
-      })
-      .catch((err) => { })
-      .finally(() => setLoading(false));
-  }, []);
+  const { data, loading } = useCollection("products");
 
   return loading ? (
     <LoaderComponent />
   ) : (
-    <ItemListContainer productsData={products} />
+    <ItemListContainer productsData={data} />
   );
 }
 

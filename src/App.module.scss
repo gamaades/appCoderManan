@@ -1,36 +1,36 @@
 .appContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh; /* Cambiado a min-height para garantizar que al menos ocupe toda la altura de la ventana */
   background-color: #282c34;
   color: white;
 
-  .navContainer {
-    align-items: flex-start;
-    width: 100vw;
-    height: 10%;
-  }
 
-  .mainContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    width: 100vw;
-    height: 75%;
-  }
+.navContainer {
+  display: flex;
+  align-items: center; /* Cambiado a "center" para centrar verticalmente los elementos */
+  width: 100%;
+  height: 10%;
+  background-color: #333; /* Agregado un fondo diferente para el encabezado */
+}
 
-  .footerContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: end;
-    height: 15%;
-    width: 100vw;
-    border-color: beige;
-    border-style: solid;
-  }
-  
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1; /* Usar flex-grow para que este contenedor ocupe el espacio restante */
+  width: 100%;
+  background-color: #444; /* Agregado un fondo diferente para el contenido principal */
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5%; /* Cambiado a un valor más pequeño para que no ocupe demasiado espacio */
+  width: 100%;
+  border-top: 1px solid beige; /* Agregado un borde superior en lugar de border-color y border-style */
+  background-color: #333; /* Agregado un fondo diferente para el pie de página */
+}
 }

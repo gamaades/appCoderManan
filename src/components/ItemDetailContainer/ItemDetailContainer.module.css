@@ -1,0 +1,15 @@
+/* ItemDetailContainer.css */
+
+/* Centra el componente en la pantalla */
+.container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura según tus necesidades */
+  }
+  
+  /* Estilos para el card */
+  .card-container {
+    width: 18rem;
+    text-align: center; /* Centra el texto en el card */
+  }
